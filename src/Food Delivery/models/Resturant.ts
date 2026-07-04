@@ -38,4 +38,8 @@ export class Restaurant {
   getItem(): Item[] {
     return this.menu;
   }
+
+  getItemByCode(code: string): Item | null {
+    return this.menu.find((item) => item.getCode() === code) ?? null;
+  }
 }

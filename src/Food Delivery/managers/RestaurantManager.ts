@@ -1,7 +1,7 @@
 import type { Restaurant } from "../models/Resturant.js";
 
 //Singleton Pattern
-class RestaurantManager {
+export class RestaurantManager {
   private static instace: RestaurantManager;
 
   private restaurantsByLocation: Map<string, Restaurant[]> = new Map();
@@ -26,5 +26,3 @@ class RestaurantManager {
     return this.restaurantsByLocation.get(loc) ?? [];
   }
 }
-
-const manger = RestaurantManager.getInstance();

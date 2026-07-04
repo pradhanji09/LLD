@@ -18,8 +18,8 @@ export class Cart {
     return this.total;
   }
 
-  addToCart(item: Item): void {
-    if (this.restaurant) throw Error("Set Restaurant First");
+  addItem(item: Item): void {
+    if (!this.restaurant) throw Error("Set Restaurant First");
     this.total += item.getPrice();
     this.items.push(item);
   }
@@ -31,5 +31,13 @@ export class Cart {
 
   setRestaurant(res: Restaurant) {
     this.restaurant = res;
+  }
+
+  getRestaurant(): Restaurant | null {
+    return this.restaurant;
+  }
+
+  isEmpty(): boolean {
+    return this.items.length === 0 ? true : false;
   }
 }

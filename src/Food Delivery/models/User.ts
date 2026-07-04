@@ -5,12 +5,14 @@ export class User {
   private id: number;
   private name: string;
   private cart: Cart;
+  private address: string;
 
   constructor(name: string) {
     User.currentId++;
     this.id = User.currentId;
     this.name = name;
     this.cart = new Cart();
+    this.address = "";
   }
 
   getName(): string {
@@ -23,5 +25,13 @@ export class User {
 
   getCart(): Cart {
     return this.cart;
+  }
+
+  setAddress(add: string): void {
+    this.address = add;
+  }
+
+  getAddress(): string {
+    return this.address;
   }
 }
